@@ -156,3 +156,4 @@ C:\Users\songbo\source\repos\WebApplicationDemo\WebApplicationDemo\bin\Debug\net
 C:\Users\songbo\source\repos\WebApplicationDemo\WebApplicationDemo\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\songbo\source\repos\WebApplicationDemo\WebApplicationDemo\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\songbo\source\repos\WebApplicationDemo\WebApplicationDemo\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+C:\Users\songbo\source\repos\WebApplicationDemo\WebApplicationDemo\obj\Debug\net8.0\WebApplicationDemo.sourcelink.json
