@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
+using WebApplicationDemo.Model;
 namespace WebApplicationDemo
 {
     public class Program
@@ -93,8 +94,10 @@ namespace WebApplicationDemo
             app.UseAuthorization();
 
             app.MapControllers();
-            app.MapGet("/", () => "Web API 正常运行！");
+            //app.MapGet("/", () => "Web API 正常运行！");
             app.Run();
+
+        
         }
     }
 }

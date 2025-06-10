@@ -49,7 +49,8 @@ namespace WebApplicationDemo.Controllers
             var user = new User
             {
                 Username = dto.Username,
-                PasswordHash = passwordHash
+                PasswordHash = passwordHash,
+                Role = dto.Role // 保存角色
             };
 
             _context.Users.Add(user);
