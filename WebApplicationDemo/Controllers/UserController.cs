@@ -9,6 +9,11 @@ namespace WebApplicationDemo.Controllers
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
+        [HttpGet("boom")]
+        public IActionResult ThrowException()
+        {
+            throw new Exception("模拟异常");
+        }
         [HttpGet("me")]
         [Authorize]
         public IActionResult GetCurrentUser()

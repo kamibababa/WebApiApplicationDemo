@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
 using WebApplicationDemo.Model;
+using WebApplicationDemo.Middlewares;
 namespace WebApplicationDemo
 {
     public class Program
@@ -89,7 +90,7 @@ namespace WebApplicationDemo
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            app.UseMiddleware<ExceptionMiddleware>();
             app.UseAuthorization();
             app.UseAuthorization();
 
