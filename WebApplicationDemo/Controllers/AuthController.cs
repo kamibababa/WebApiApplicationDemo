@@ -4,6 +4,7 @@ using System.Text;
 using WebApplicationDemo.Data;
 using WebApplicationDemo.DTOs;
 using WebApplicationDemo.Model;
+using WebApplicationDemo.Services;
 
 namespace WebApplicationDemo.Controllers
 {
@@ -12,12 +13,27 @@ namespace WebApplicationDemo.Controllers
     public class AuthController : ControllerBase
     {
         private readonly AppDbContext _context;
-
-        public AuthController(AppDbContext context)
+        private readonly JwtService _jwtService;
+        public AuthController(AppDbContext context, JwtService jwtService)
         {
             _context = context;
+            _jwtService = jwtService;
         }
+        [HttpPost("login")]
+        public IActionResult Login(LoginDto dto)
+        {
+            var passwordHash = ComputeSha256Hash(dto.Password);
+            var user = _context.Users.FirstOrDefault(u =>
+                u.Username == dto.Username && u.PasswordHash == passwordHash);
 
+            if (user == null)
+            {
+                return Unauthorized("用户名或密码错误");
+            }
+
+            var token = _jwtService.GenerateToken(user);
+            return Ok(new { token });
+        }
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterDto dto)
         {

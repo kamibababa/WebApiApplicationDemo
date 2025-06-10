@@ -1,6 +1,7 @@
 
 using Microsoft.EntityFrameworkCore;
 using WebApplicationDemo.Data;
+using WebApplicationDemo.Services;
 
 namespace WebApplicationDemo
 {
@@ -14,6 +15,8 @@ namespace WebApplicationDemo
             // Ìí¼Ó DbContext
             builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            builder.Services.AddScoped<JwtService>();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
